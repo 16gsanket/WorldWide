@@ -1,9 +1,22 @@
-.nav{
+.nav ul{
     list-style: none;
     color:green;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(177, 116, 220);
 }
 
 .l{
     color:red;
     text-decoration: none;
 }
+
+:global(.test){
+    background-color: aquamarine;
+}
+
+.nav :global(.active){
+    color:green;
+}
+
