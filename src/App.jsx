@@ -15,7 +15,7 @@ import Form from "./components/Form";
 const BASE_URL = "http://localhost:8000";
 
 function App() {
-  const [cities, setCities] = useState([]);
+  /*const [cities, setCities] = useState([]);
   const [IsLoading, setIsLoading] = useState(false);
 
   useEffect(function () {
@@ -36,6 +36,8 @@ function App() {
 
     fetchcities();
   }, []);
+
+  */
 
   return (
     <BrowserRouter>
