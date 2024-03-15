@@ -1,68 +1,87 @@
 import { useParams } from "react-router";
 import styles from "./City.module.css";
-
-// const formatDate = (date) =>
-//   new Intl.DateTimeFormat("en", {
-//     day: "numeric",
-//     month: "long",
-//     year: "numeric",
-//     weekday: "long",
-//   }).format(new Date(date));
+import { City_C } from "../contexts/CitiesContext";
+import BackButton from "./BackButton";
+import { useEffect, useState } from "react";
+const BASE_URL = "http://localhost:8000";
 
 function City() {
+  const formatDate = (date) =>
+    new Intl.DateTimeFormat("en", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      weekday: "long",
+    }).format(new Date(date));
 
-  // const x = useParams();
-  // console.log(x);
+  const id = useParams();
 
-  // TEMP DATA
-  const currentCity = {
-    cityName: "Lisbon",
-    emoji: "🇵🇹",
-    date: "2027-10-31T15:59:59.138Z",
-    notes: "My favorite city so far!",
-  };
+  const [currentCity, setCurrentCity] = useState({});
+
+  // const { formatDate } = City_C();
 
   const { cityName, emoji, date, notes } = currentCity;
+  // console.log(currentCity);
 
-  
+  useEffect(
+    function () {
+      console.log("inside the city.jsx useEffect");
+      async function fetchCurrentCity(id) {
+        try {
+          let res = await fetch(`${BASE_URL}/cities/id=${id}`);
+          // let res = await fetch("http://localhost:8000/cities/17806751");
+          let data = await res.json();
+
+          setCurrentCity(data);
+          console.log(data);
+        } catch (err) {
+          console.log("error in fetching data");
+        } finally {
+        }
+      }
+
+      fetchCurrentCity(id);
+    },
+    [id]
+  );
 
   return (
-    <h2>City</h2>
-    // <div className={styles.city}>
-    //   <div className={styles.row}>
-    //     <h6>City name</h6>
-    //     <h3>
-    //       <span>{emoji}</span> {cityName}
-    //     </h3>
-    //   </div>
+    <div className={styles.city}>
+      <div className={styles.row}>
+        <h6>City Name</h6>
+        <h3>
+          <span>{emoji}</span>
 
-    //   <div className={styles.row}>
-    //     <h6>You went to {cityName} on</h6>
-    //     <p>{formatDate(date || null)}</p>
-    //   </div>
+          {cityName}
+        </h3>
+      </div>
+      <div className={styles.row}>
+        <h6>You went to {cityName} on</h6>
+        <p>{formatDate(date || null)}</p>
+      </div>
 
-    //   {notes && (
-    //     <div className={styles.row}>
-    //       <h6>Your notes</h6>
-    //       <p>{notes}</p>
-    //     </div>
-    //   )}
+      {currentCity.notes && (
+        <div className={styles.row}>
+          <h6>Your notes</h6>
+          <p>{notes}</p>
+        </div>
+      )}
 
-    //   <div className={styles.row}>
-    //     <h6>Learn more</h6>
-    //     <a
-    //       href={`https://en.wikipedia.org/wiki/${cityName}`}
-    //       target="_blank"
-    //       rel="noreferrer"
-    //     >
-    //       Check out {cityName} on Wikipedia &rarr;
-    //     </a>
-    //   </div>
+      <div className={styles.row}>
+        <h6>Learn more</h6>
+        <a
+          href={`https://en.wikipedia.org/wiki/${cityName}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Check out {cityName} on Wikipedia &rarr;
+        </a>
+      </div>
 
-    //   <div>
-    //     <ButtonBack />
-    //   </div>
-    // </div>
+      <div>
+        <BackButton />
+      </div>
+    </div>
   );
 }
 
