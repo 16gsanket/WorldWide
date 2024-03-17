@@ -15,25 +15,26 @@ function City() {
     }).format(new Date(date));
 
   const id = useParams();
+  const id_of_city = id.id;
+  console.log(id_of_city);
+  console.log(typeof id_of_city);
 
   const [currentCity, setCurrentCity] = useState({});
 
   // const { formatDate } = City_C();
 
   const { cityName, emoji, date, notes } = currentCity;
-  // console.log(currentCity);
 
   useEffect(
     function () {
-      console.log("inside the city.jsx useEffect");
+      // console.log("inside the city.jsx useEffect");
       async function fetchCurrentCity(id) {
         try {
-          let res = await fetch(`${BASE_URL}/cities/id=${id}`);
+          let res = await fetch(`${BASE_URL}/cities/${id_of_city}`);
           // let res = await fetch("http://localhost:8000/cities/17806751");
           let data = await res.json();
 
           setCurrentCity(data);
-          console.log(data);
         } catch (err) {
           console.log("error in fetching data");
         } finally {

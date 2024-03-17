@@ -24,7 +24,7 @@ function CityProvider({ children }) {
         let data = await res.json();
 
         setCities((citydata) => (citydata = data));
-        console.log(data);
+        // console.log(data);
       } catch (err) {
         console.log("error in fetching data");
       } finally {
