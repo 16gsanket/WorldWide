@@ -6,7 +6,7 @@ const BASE_URL = "http://localhost:8000";
 function CityProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [IsLoading, setIsLoading] = useState(false);
-  // const [currentCity, setCurrentCity] = useState({});
+  const [currentCity, setCurrentCity] = useState({});
 
   const formatDate = (date) =>
     new Intl.DateTimeFormat("en", {
@@ -35,27 +35,27 @@ function CityProvider({ children }) {
     fetchcities();
   }, []);
 
-  // async function getCurrentCityData(id) {
-  //   console.log("current id is ", id);
-  //   try {
-
-  //     let res = await fetch(`${BASE_URL}/cities/${id}`);
-  //     let data = await res.json();
-  //     console.log(data);
-  //     setCurrentCity(data);
-
-  //   } catch (err) {
-  //     console.log("error in fetching data local city ");
-  //   } finally {
-
-  //   }
-  // }
+  async function getCurrentCityData(id) {
+    console.log("current id is ", id);
+    try {
+      let res = await fetch(`${BASE_URL}/cities/${id.id}`);
+      let data = await res.json();
+      console.log(data);
+      setCurrentCity(data);
+    } catch (err) {
+      console.log("error in fetching data local city ");
+    } finally {
+    }
+  }
 
   return (
     <CityContext.Provider
       value={{
         cities: cities,
         IsLoading: IsLoading,
+        formatDate,
+        getCurrentCityData,
+        currentCity,
       }}
     >
       {children}

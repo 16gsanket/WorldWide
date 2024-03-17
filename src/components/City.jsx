@@ -17,13 +17,6 @@ const formatDate = (date) =>(
 
 
 function City() {
-  const formatDate = (date) =>
-    new Intl.DateTimeFormat("en", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-      weekday: "long",
-    }).format(new Date(date));
 
   const id = useParams();
   const id_of_city = id.id;
@@ -31,33 +24,34 @@ function City() {
   console.log(typeof id_of_city);
 
 
-  const [currentCity, setCurrentCity] = useState({});
 
-  // const { formatDate } = City_C();
+  const { formatDate , getCurrentCityData , currentCity } = City_C();
 
   const { cityName, emoji, date, notes } = currentCity;
 
-  useEffect(
-    function () {
-      // console.log("inside the city.jsx useEffect");
-      async function fetchCurrentCity(id) {
-        try {
-          let res = await fetch(`${BASE_URL}/cities/${id_of_city}`);
-          // let res = await fetch("http://localhost:8000/cities/17806751");
-          let data = await res.json();
+  // useEffect(
+  //   function () {
 
-          setCurrentCity(data);
-        } catch (err) {
-          console.log("error in fetching data");
-        } finally {
-        }
-      }
+  //     async function fetchCurrentCity(id) {
+  //       try {
+  //         let res = await fetch(`${BASE_URL}/cities/${id_of_city}`);
+      
+  //         let data = await res.json();
 
-      fetchCurrentCity(id);
-    },
-    [id]
-  );
+  //         setCurrentCity(data);
+  //       } catch (err) {
+  //         console.log("error in fetching data");
+  //       } finally {
+  //       }
+  //     }
 
+  //     fetchCurrentCity(id);
+  //   },
+  //   [id]
+  // );
+
+
+  getCurrentCityData(id)
   return (
     <div className={styles.city}>
       <div className={styles.row}>
