@@ -1,9 +1,15 @@
-import { Children, createContext, useContext ,useEffect, useState } from "react";
+import {
+
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 const CityContext = createContext();
 const BASE_URL = "http://localhost:8000";
 
-function CityProvider({children}) {
+function CityProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [IsLoading, setIsLoading] = useState(false);
 
@@ -26,16 +32,16 @@ function CityProvider({children}) {
     fetchcities();
   }, []);
 
-  return <CityContext.Provider value={{cities:cities,IsLoading : IsLoading}}>
-
-    {children}
-
-  </CityContext.Provider>;
+  return (
+    <CityContext.Provider value={{ cities: cities, IsLoading: IsLoading }}>
+      {children}
+    </CityContext.Provider>
+  );
 }
 
-function City_C(){
-    const City_Ctxt = useContext(CityContext);
-    return City_Ctxt;
+function City_C() {
+  const City_Ctxt = useContext(CityContext);
+  return City_Ctxt;
 }
 
-export  {CityProvider , City_C};
+export { CityProvider, City_C };
