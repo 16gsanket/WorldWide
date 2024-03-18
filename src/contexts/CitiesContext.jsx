@@ -7,6 +7,7 @@ function CityProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [IsLoading, setIsLoading] = useState(false);
   const [currentCity, setCurrentCity] = useState({});
+  const id_current_city = 0
 
   const formatDate = (date) =>
     new Intl.DateTimeFormat("en", {
@@ -38,13 +39,18 @@ function CityProvider({ children }) {
   async function getCurrentCityData(id) {
     console.log("current id is ", id);
     try {
+      setIsLoading(true);
       let res = await fetch(`${BASE_URL}/cities/${id.id}`);
       let data = await res.json();
-      console.log(data);
+
       setCurrentCity(data);
+      id_current_city = data.id;
     } catch (err) {
-      console.log("error in fetching data local city ");
+      console.log(
+        "error in fetching data local city check if server is up and running"
+      );
     } finally {
+      setIsLoading(false)
     }
   }
 
@@ -56,6 +62,7 @@ function CityProvider({ children }) {
         formatDate,
         getCurrentCityData,
         currentCity,
+        id_current_city
       }}
     >
       {children}

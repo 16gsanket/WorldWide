@@ -13,7 +13,7 @@ function CityList() {
 
   return (
     <>
-      {/* {console.log(cities)} */}
+      
       <ul className={styles.cityList}>
         {cities.map((city) => (
           <CityItem city={city} key={city.cityName + city.country} />

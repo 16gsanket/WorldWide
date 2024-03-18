@@ -10,13 +10,18 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function CityItem({ city }) {
-  // console.log(city);
+  const { currentCity, id_current_city } = City_C;
+  console.log(id_current_city);
+  //resolve this error of currentCity returning error :-
+
   const { cityName, emoji, date, id, position } = city;
 
   return (
     <li>
       <Link
-        className={styles.cityItem}
+        className={`${styles.cityItem} ${
+          id === id_current_city?.id ? styles["cityItem--active"] : ""
+        }`}
         // to={`${id}`}
         to={`${id}?lat=${position.lat}&lng=${position.lng}`}
       >
