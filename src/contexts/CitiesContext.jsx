@@ -7,7 +7,7 @@ function CityProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [IsLoading, setIsLoading] = useState(false);
   const [currentCity, setCurrentCity] = useState({});
-  const id_current_city = 0
+  const id_current_city = 0;
 
   const formatDate = (date) =>
     new Intl.DateTimeFormat("en", {
@@ -37,7 +37,6 @@ function CityProvider({ children }) {
   }, []);
 
   async function getCurrentCityData(id) {
-    console.log("current id is ", id);
     try {
       setIsLoading(true);
       let res = await fetch(`${BASE_URL}/cities/${id.id}`);
@@ -50,8 +49,49 @@ function CityProvider({ children }) {
         "error in fetching data local city check if server is up and running"
       );
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
+  }
+
+  async function createCity(newCity) {
+    try {
+      setIsLoading(true);
+      let res = await fetch(`${BASE_URL}/cities`, {
+        method: "POST",
+        body: JSON.stringify(newCity),
+        "Content-Type": "application/json",
+      });
+      let data = await res.json();
+
+      setCities((cities) => [...cities, data]);
+    } catch (err) {
+      console.log(
+        "error in seding data local city check if server is up and running"
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function deleteCity(id) {
+    console.log("inside the deleteCIty");
+    try {
+      setIsLoading(true);
+      await fetch(`${BASE_URL}/cities/${id}`, {
+        methos: "DELETE",
+      });
+
+      setCities((cities) => cities.filter((city) => city.id !== id));
+    } catch (err) {
+      console.log("error");
+    } finally {
+      setIsLoading(false);
+      
+    }
+  }
+
+  function testFunction(){
+    console.log('this is test function')
   }
 
   return (
@@ -62,8 +102,10 @@ function CityProvider({ children }) {
         formatDate,
         getCurrentCityData,
         currentCity,
-        id_current_city
-      }}
+        id_current_city,
+        createCity,
+        deleteCity ,
+        testFunction     }}
     >
       {children}
     </CityContext.Provider>

@@ -55,7 +55,7 @@
       "date": "2027-07-15T08:22:53.976Z",
       "notes": "",
       "position": {
-        "lat": 19.0760,
+        "lat": 19.076,
         "lng": 72.8777
       },
       "id": "13341"
@@ -71,6 +71,150 @@
         "lng": 77.1025
       },
       "id": "10341"
+    },
+    {
+      "id": "b6a2",
+      "cityName": "Higueruela",
+      "country": "Spain",
+      "date": "2024-03-20T04:18:25.105Z",
+      "notes": "",
+      "emoji": "🇪🇸",
+      "position": {
+        "lat": "39.010787457433274",
+        "lng": "-1.406816267023672"
+      }
+    },
+    {
+      "id": "e535",
+      "cityName": "Panvel",
+      "country": "India",
+      "date": "2024-03-20T04:22:17.123Z",
+      "notes": "",
+      "emoji": "🇮🇳",
+      "position": {
+        "lat": "18.934308359307803",
+        "lng": "73.09843859848944"
+      }
+    },
+    {
+      "id": "1ff9",
+      "cityName": "arrondissement of Paris",
+      "country": "France",
+      "date": "2024-03-20T04:22:51.508Z",
+      "notes": "Nice Trip to France",
+      "emoji": "🇫🇷",
+      "position": {
+        "lat": "48.878270274352346",
+        "lng": "2.368666372085318"
+      }
+    },
+    {
+      "id": "df94",
+      "cityName": "Buniel",
+      "country": "Spain",
+      "date": "2024-03-20T04:27:42.782Z",
+      "notes": "Nice city to live in",
+      "emoji": "🇪🇸",
+      "position": {
+        "lat": "42.30836643815842",
+        "lng": "-3.8038744941631775"
+      }
+    },
+    {
+      "id": "8d0f",
+      "cityName": "Toro",
+      "country": "Spain",
+      "date": "2024-03-20T04:27:42.782Z",
+      "notes": "Nice city to live in here!",
+      "emoji": "🇪🇸",
+      "position": {
+        "lat": "41.42343031449319",
+        "lng": "-5.518782893392474"
+      }
+    },
+    {
+      "id": "2d2d",
+      "cityName": "Baar",
+      "country": "Switzerland",
+      "date": "2024-03-20T04:28:32.765Z",
+      "notes": "Excellent",
+      "emoji": "🇨🇭",
+      "position": {
+        "lat": "47.17343378296674",
+        "lng": "8.541678523642831"
+      }
+    },
+    {
+      "id": "9cb3",
+      "cityName": "Collonges-les-Bevy",
+      "country": "France",
+      "date": "2024-03-20T04:28:32.765Z",
+      "notes": "Excellent nice on",
+      "emoji": "🇫🇷",
+      "position": {
+        "lat": "47.17256077099934",
+        "lng": "4.853286307596011"
+      }
+    },
+    {
+      "id": "558b",
+      "cityName": "Baudrieres",
+      "country": "France",
+      "date": "2024-03-20T04:31:32.580Z",
+      "notes": "jfhsdjkf",
+      "emoji": "🇫🇷",
+      "position": {
+        "lat": "46.66206147936125",
+        "lng": "5.00518783986292"
+      }
+    },
+    {
+      "id": "7149",
+      "cityName": "Dantan",
+      "country": "India",
+      "date": "2024-03-20T04:32:19.399Z",
+      "notes": "Kolkata is Best",
+      "emoji": "🇮🇳",
+      "position": {
+        "lat": "22.018341922248695",
+        "lng": "87.26066731200501"
+      }
+    },
+    {
+      "id": "2156",
+      "cityName": "Durg",
+      "country": "India",
+      "date": "2024-03-20T04:33:04.859Z",
+      "notes": "Clean CIty",
+      "emoji": "🇮🇳",
+      "position": {
+        "lat": "21.266111189745473",
+        "lng": "81.29422841961599"
+      }
+    },
+    {
+      "id": "9279",
+      "cityName": "Chintamani Taluk",
+      "country": "India",
+      "date": "2024-03-20T04:33:33.633Z",
+      "notes": "South India is Best",
+      "emoji": "🇮🇳",
+      "position": {
+        "lat": "13.46950810995758",
+        "lng": "78.10570531533915"
+      }
+    },
+    {
+      "id": "5f8e",
+      "cityName": "El Hadjira",
+      "country": "Algeria",
+      "date": "2024-03-20T05:00:34.724Z",
+      "notes": "Good city but a bit expensive",
+      "emoji": "🇩🇿",
+      "position": {
+        "lat": "32.6951700302006",
+        "lng": "5.932436764177599"
+      }
     }
   ]
 }
