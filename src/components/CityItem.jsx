@@ -10,11 +10,17 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function CityItem({ city }) {
-  const { currentCity, id_current_city } = City_C;
-  console.log(id_current_city);
+  const { currentCity, id_current_city, deleteCity, testFunction } = City_C();
+
   //resolve this error of currentCity returning error :-
 
   const { cityName, emoji, date, id, position } = city;
+
+  function handleClick(e) {
+    e.preventDefault();
+
+    deleteCity(id);
+  }
 
   return (
     <li>
@@ -28,7 +34,14 @@ function CityItem({ city }) {
         <span className={styles.emoji}>{emoji}</span>
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>{formatDate(date)}</time>
-        <button className={styles.deleteBtn}>&times;</button>
+        <button
+          className={styles.deleteBtn}
+          onClick={(e) => {
+            return handleClick(e);
+          }}
+        >
+          &times;
+        </button>
       </Link>
     </li>
   );
