@@ -1,7 +1,7 @@
 import AppNav from "../components/AppNav";
 import Sidebar from "../components/Sidebar";
 import Map from "../components/Map";
-
+import User from "../components/User";
 import styles from "./AppLayout.module.css";
 
 function AppLayout() {
@@ -9,6 +9,7 @@ function AppLayout() {
     <div className={styles.app}>
       <Sidebar />
       <Map />
+      <User />
     </div>
   );
 }

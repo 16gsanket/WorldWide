@@ -4,6 +4,7 @@ const AuthContext = createContext();
 function reducer(state, action) {
   switch (action.type) {
     case "login":
+        console.log(action.payload)
       return {
         ...state,
         user: action.payload,
@@ -26,7 +27,7 @@ const FAKE_USER = {
   password: "qwerty",
   avatar: "https://i.pravatar.cc/100?u=zz",
 };
-
+const initalState = { user: {}, isAuthenticated: false };
 function AuthProvider({ children }) {
   const [{ user, isAuthenticated }, dispatch] = useReducer(
     reducer,
@@ -51,7 +52,8 @@ function AuthProvider({ children }) {
 }
 
 function useAuthContext() {
-  const context = useContext(AuthUser);
+  const context = useContext(AuthContext);
+  if (context === undefined) throw new Error("Context is empty");
   return context;
 }
 
