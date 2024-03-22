@@ -5,15 +5,14 @@ import Message from "./Message";
 import { City_C } from "../contexts/CitiesContext";
 
 function CityList() {
-
-  const {cities , IsLoading} = City_C();
+  const { cities, IsLoading } = City_C();
+  console.log("cities from CityList ", cities);
 
   if (IsLoading) return <Spinner />;
   if (!cities.length) return <Message />;
 
   return (
     <>
-      
       <ul className={styles.cityList}>
         {cities.map((city) => (
           <CityItem city={city} key={city.cityName + city.country} />

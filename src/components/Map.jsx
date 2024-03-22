@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { City_C } from "../contexts/CitiesContext";
 import Button from "./Button";
 import { useGeoLocation } from "../hooks/useGeoLocation";
+import { getURLPosition } from "../hooks/getURLPosition";
 
 function Map() {
   const [mapPosition, setMapPosition] = useState([40, 0]);
@@ -21,7 +22,8 @@ function Map() {
     position: geolocationPosition,
     getPosition,
   } = useGeoLocation();
-
+  
+  const [mapLat , mapLng] = getURLPosition();
 
   useEffect(
     function () {
@@ -57,7 +59,7 @@ function Map() {
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
 
-        {cities.map((city) => (
+        {cities?.map((city) => (
           <Marker
             position={[city.position.lat, city.position.lng]}
             key={city.id}
