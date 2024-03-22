@@ -25,87 +25,39 @@
       "id": "17806751"
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
+      "id": "ac61",
+      "cityName": "Gharyan",
+      "country": "Libya",
+      "date": "2024-03-22T08:36:19.043Z",
+      "notes": "",
+      "emoji": "🇱🇾",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": "98443197"
+        "lat": "29.209926980130138",
+        "lng": "12.985403464704982"
+      }
     },
     {
-      "cityName": "Lahore",
-      "country": "Pakistan",
-      "emoji": "🇵K",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 31.5204,
-        "lng": 74.3587
-      },
-      "id": "73985"
-    },
-    {
-      "id": "46c0",
-      "cityName": "Tolga District",
+      "id": "0f93",
+      "cityName": "Bordj Omar Driss",
       "country": "Algeria",
-      "date": "2024-03-22T07:43:24.012Z",
-      "notes": "excellent place",
+      "date": "2024-03-22T08:37:00.306Z",
+      "notes": "",
       "emoji": "🇩🇿",
       "position": {
-        "lat": "34.972962424319626",
-        "lng": "5.2467007365139695"
+        "lat": "29.897712327145324",
+        "lng": "6.32733715936571"
       }
     },
     {
-      "id": "c208",
-      "cityName": "New Delhi",
+      "id": "2ba4",
+      "cityName": "Mumbai",
       "country": "India",
-      "date": "2024-03-22T08:13:48.290Z",
-      "notes": "Capital of India, Diplomatic Things Happen Here",
+      "date": "2024-03-22T08:47:28.992Z",
+      "notes": "hometown",
       "emoji": "🇮🇳",
       "position": {
-        "lat": "28.574820054457106",
-        "lng": "77.16770428151493"
-      }
-    },
-    {
-      "id": "5786",
-      "cityName": "Kachnariya",
-      "country": "India",
-      "date": "2024-03-22T08:15:29.577Z",
-      "notes": "good",
-      "emoji": "🇮🇳",
-      "position": {
-        "lat": "23.564196540959106",
-        "lng": "77.34146965096664"
-      }
-    },
-    {
-      "id": "0245",
-      "cityName": "Olocau del Rey",
-      "country": "Spain",
-      "date": "2024-03-22T08:18:10.951Z",
-      "notes": "",
-      "emoji": "🇪🇸",
-      "position": {
-        "lat": "40.63073260143191",
-        "lng": "-0.3081185105343454"
-      }
-    },
-    {
-      "id": "2a51",
-      "cityName": "Castroserracin",
-      "country": "Spain",
-      "date": "2024-03-22T08:18:17.784Z",
-      "notes": "",
-      "emoji": "🇪🇸",
-      "position": {
-        "lat": "41.3933882120885",
-        "lng": "-3.8014938872710817"
+        "lat": "19.062288113380017",
+        "lng": "72.816866208527"
       }
     }
   ]

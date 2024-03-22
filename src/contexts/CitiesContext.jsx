@@ -8,18 +8,18 @@ function reducer(state, action) {
     case "addcities":
       return { ...state, cities: action.payload };
     case "loadingon":
-      return { ...state, IsLoading: !initalState.IsLoading };
+      return { ...state, IsLoading: !state.IsLoading };
     case "loadingoff":
-      return { ...state, IsLoading: !initalState.IsLoading };
+      console.log("city list after loading is done ", state.cities);
+      return { ...state, IsLoading: !state.IsLoading };
     case "setCurrentCity":
       return { ...state, currentCity: action.payload };
     case "createCity":
       return { ...state, cities: [...state.cities, action.payload] };
     case "deleteCity":
-      let new_cities_list = state.cities.filter((city) => {
-        city.id !== action.payload.id;
-      });
-      return { ...initalState, cities:  new_cities_list };
+      return { ...state, cities: action.payload };
+    default:
+      return "not anyof the logic defined";
   }
 
   return {};
@@ -27,13 +27,12 @@ function reducer(state, action) {
 const initalState = { cities: [], IsLoading: false, currentCity: {} };
 
 function CityProvider({ children }) {
-  const { cities, IsLoading, currentCity } = initalState;
-
   // const [cities, setCities] = useState([]);
   // const [IsLoading, setIsLoading] = useState(false);
   // const [currentCity, setCurrentCity] = useState({});
-
   const [state, dispatch] = useReducer(reducer, initalState);
+
+  const { cities, IsLoading, currentCity } = state;
 
   const id_current_city = 0;
 
@@ -54,7 +53,7 @@ function CityProvider({ children }) {
 
         dispatch({ type: "addcities", payload: data });
 
-        setCities((citydata) => (citydata = data));
+        // setCities((citydata) => (citydata = data));
         // console.log(data);
       } catch (err) {
         console.log("error in fetching data");
@@ -111,7 +110,8 @@ function CityProvider({ children }) {
       });
 
       // setCities((cities) => cities.filter((city) => city.id !== id));
-      dispatch({ type: "deleteCity", payload: id });
+      const new_city_list = state.cities.filter((city) => city.id !== id);
+      dispatch({ type: "deleteCity", payload: new_city_list });
     } catch (err) {
       console.log("error");
     } finally {
@@ -130,7 +130,7 @@ function CityProvider({ children }) {
         IsLoading: IsLoading,
         formatDate,
         getCurrentCityData,
-        currentCity,
+        currentCity: currentCity,
         id_current_city,
         createCity,
         deleteCity,
