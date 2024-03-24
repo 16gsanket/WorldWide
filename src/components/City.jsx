@@ -21,39 +21,18 @@ function City() {
   console.log(id_of_city);
   console.log(typeof id_of_city);
 
-  const { formatDate, getCurrentCityData, currentCity , IsLoading} = City_C();
+  const { formatDate, getCurrentCityData, currentCity, IsLoading } = City_C();
 
   const { cityName, emoji, date, notes } = currentCity;
-
-  // useEffect(
-  //   function () {
-
-  //     async function fetchCurrentCity(id) {
-  //       try {
-  //         let res = await fetch(`${BASE_URL}/cities/${id_of_city}`);
-
-  //         let data = await res.json();
-
-  //         setCurrentCity(data);
-  //       } catch (err) {
-  //         console.log("error in fetching data");
-  //       } finally {
-  //       }
-  //     }
-
-  //     fetchCurrentCity(id);
-  //   },
-  //   [id]
-  // );
 
   useEffect(
     function () {
       getCurrentCityData(id);
     },
-    [id]
+    [id, getCurrentCityData]
   );
 
-  if(IsLoading) return <Spinner />
+  if (IsLoading) return <Spinner />;
 
   return (
     <div className={styles.city}>
